@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
 
         button?.setOnClickListener {
             var urlText: String = editText?.text.toString()
-            if (urlText.indexOf("tencent") != -1) {
+            if (urlText.indexOf("=tencent") != -1 || urlText.indexOf("=IOS") != -1) {
                 var startNum : Int = urlText.indexOf("?")
                 urlText = urlText.substring(startNum + 1)
                 urlText = "clashofclans://" + urlText
