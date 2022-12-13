@@ -10,6 +10,6 @@ COC阵型复制工具 不会通过任何方式强制收取费用，或对使用�
 
 若修改 COC阵型复制工具 源代码再发布，或参考 COC阵型复制工具 内部实现发布另一个项目，则衍生项目必须在文章首部或 'COC阵型复制工具' 相关内容首次出现的位置明确声明来源于[本仓库](https://github.com/atigger/COC-Helper)。不得扭曲或隐藏免费且开源的事实。
 
-## [下载地址](https://github.com/atigger/COC-Helper/releases/tag/1.0)
+## [下载地址](https://github.com/atigger/COC-Helper/releases/tag/1.1)
 
 # 一切开发旨在学习，请勿用于非法用途
