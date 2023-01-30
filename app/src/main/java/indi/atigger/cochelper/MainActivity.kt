@@ -31,20 +31,36 @@ class MainActivity : AppCompatActivity() {
         val textView: TextView? = findViewById(R.id.textView)
         val toast: Toast =
             Toast.makeText(applicationContext, "暂不支持此链接\n国服和国际服数据不互通", Toast.LENGTH_SHORT)
+        val componentName = ComponentName(
+            "com.tencent.tmgp.supercell.clashofclans",
+            "com.supercell.titan.tencent.GameAppTencent"
+        )
 
+        /**
+         * 接收intent请求
+         */
+        val intent = intent
+        val scheme = intent.scheme
+        val uri = intent.data
+        if(uri!=null){
+            var urlText:String = uri.toString()
+            if(urlText.indexOf("=tencent") != -1 || urlText.indexOf("=IOS") != -1 || urlText.indexOf("=iOS") != -1 || urlText.indexOf("=ios") != -1){
+                intent.component = componentName
+                intent.setData(uri)
+                startActivity(intent)
+            }else{
+                toast.show()
+            }
+        }
         /**
          * 使用阵型点击事件，替换链接关键字之后通过intent打开应用
          */
         button?.setOnClickListener {
             var urlText: String = editText?.text.toString()
-            if (urlText.indexOf("=tencent") != -1 || urlText.indexOf("=IOS") != -1) {
+            if(urlText.indexOf("=tencent") != -1 || urlText.indexOf("=IOS") != -1 || urlText.indexOf("=iOS") != -1 || urlText.indexOf("=ios") != -1){
                 var startNum: Int = urlText.indexOf("?")
                 urlText = urlText.substring(startNum + 1)
                 urlText = "clashofclans://" + urlText
-                val componentName = ComponentName(
-                    "com.tencent.tmgp.supercell.clashofclans",
-                    "com.supercell.titan.tencent.GameAppTencent"
-                )
                 intent.component = componentName
                 intent.setData(urlText.toUri())
                 startActivity(intent)
